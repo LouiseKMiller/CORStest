@@ -9,7 +9,7 @@ var locations = [];
 
 		var origins = "30.2600,-97.7400"
 		var destinations = "30.5555,-97.8888|30.5624,-97.8664"
-		var queryURL = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+origins+"&destinations="+destinations+"&key=AIzaSyDHLAzU1_hkV_IcuSPAhH61fqAi96I0V4c"; 
+		var queryURL = "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+origins+"&destinations="+destinations+"&key=AIzaSyAdYl8qW5ouuheds0mRwmrL9X5z91RYXuM"; 
 
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
@@ -47,11 +47,13 @@ if (!xhr) {
 
 function makeCorsRequest(){
 	var xhr = createCORSRequest('GET', queryURL);
+
 	if (!xhr) {
 		console.log('CORS not supported');
 		return;
 	}
-	xhr.onload = function(){
+	xhr.onreadystatechange = function(){
+		console.log ("onreadystatechange");
 		var text = xhr.responseText;
 		var title = getTitle(text);
 		console.log('Response from CORS request ' + title);
@@ -62,7 +64,7 @@ function makeCorsRequest(){
 	};
 	console.log ("you are here");
 //	xhr.setRequestHeader("Access-Contol-Allow-Origin","*");
-
+	console.log (xhr);
 	xhr.send();
 	};
 
