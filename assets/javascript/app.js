@@ -61,7 +61,7 @@ function makeCorsRequest(){
 		console.log("Error");
 	};
 	console.log ("you are here");
-	xhr.setRequestHeader("Access-Contol-Allow-Origin","*");
+//	xhr.setRequestHeader("Access-Contol-Allow-Origin","*");
 
 	xhr.send();
 	};
